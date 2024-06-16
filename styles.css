@@ -1,0 +1,107 @@
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1156cceb;
+}
+
+header {
+    background-color: white;
+    color: #1156cceb;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.5rem;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 65px;
+    background: url('https://boscolo-viaggi-res.cloudinary.com/images/w_2560,h_1509/f_auto,q_auto/v1673520771/Destinazioni/Italia/Sicilia/1EA_SS_Cattedrale_SantAgata_Catania_1721284357_mwkccj/1EA_SS_Cattedrale_SantAgata_Catania_1721284357_mwkccj.jpg?_i=AA');
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 51, 0.5); /* Sovrapposizione blu notte con opacità del 50% */
+    z-index: -1;
+}
+
+.service {
+    background-color: rgba(255, 255, 255, 0.9); /* Bianco leggermente trasparente */
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 35%; /* Imposta la larghezza al 35% per ottenere box più stretti */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    max-height: 150px; /* Altezza iniziale per mostrare solo il titolo e il link */
+    position: relative;
+    z-index: 1;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+}
+
+.service-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-info h2 {
+    font-size: 1.5em;
+    color: #1156cceb;
+}
+
+.service-summary {
+    margin-top: 10px;
+}
+
+.service-details {
+    display: none;
+    text-align: left;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.service.active {
+    max-height: 1000px; /* Altezza sufficiente per mostrare il contenuto completo */
+}
+
+.service.active .service-details {
+    display: block;
+    opacity: 1;
+}
+
+.service-info p {
+    font-size: 1em;
+    color: #666;
+}
+
+.learn-more {
+    color: #0038FF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.learn-more:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .service {
+        width: 100%; /* Al 100% per dispositivi più piccoli */
+    }
+}
